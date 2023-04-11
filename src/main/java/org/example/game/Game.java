@@ -64,8 +64,10 @@ public class Game {
     }
 
     public void playTurn() {
+        playersManager.getCurrentActivePlayer().displayHand();
+        cardDeck.printTopCard();
+
         Player currPlayer = playersManager.getCurrentActivePlayer();
-        currPlayer.displayHand();
         Card card = currPlayer.getMatchingCardFromHand(cardDeck.getTopCard(), !isActionCardPlayedLastTurn());
 
         if (card == null) {
@@ -79,6 +81,7 @@ public class Game {
         }
 
         currPlayer.removeCardFromHand(card);
+        cardDeck.addCard(card);
 
         if (card.isActionCard()) {
             ActionCard actionCard = (ActionCard) card;
