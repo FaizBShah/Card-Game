@@ -5,6 +5,7 @@ import org.example.card.Card;
 import org.example.card.CardDeck.CardDeck;
 import org.example.player.Player;
 import org.example.player.PlayersManager;
+import org.example.service.PrintService;
 
 import java.util.List;
 
@@ -64,8 +65,7 @@ public class Game {
     }
 
     public void playTurn() {
-        playersManager.getCurrentActivePlayer().displayHand();
-        cardDeck.printTopCard();
+        PrintService.getCurrentGameStatus(this);
 
         Player currPlayer = playersManager.getCurrentActivePlayer();
         Card card = currPlayer.getMatchingCardFromHand(cardDeck.getTopCard(), !isActionCardPlayedLastTurn());

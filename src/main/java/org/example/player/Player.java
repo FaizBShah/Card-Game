@@ -45,22 +45,4 @@ public class Player {
 
         return null;
     }
-
-    public void displayHand() {
-        System.out.println(getName() + " has the following cards in their hand");
-
-        for (Card card: getHand()) {
-            String cardValue = switch (card.getValue()) {
-                case 1 -> "Ace";
-                case 11 -> "Jack";
-                case 12 -> "Queen";
-                case 13 -> "King";
-                default -> card.getValue().toString();
-            };
-
-            System.out.print(cardValue + " " + card.getSuit() + "       ");
-        }
-
-        System.out.println();
-    }
 }
