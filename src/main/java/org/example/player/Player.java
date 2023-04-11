@@ -58,7 +58,7 @@ public class Player {
                 default -> card.getValue().toString();
             };
 
-            System.out.println(cardValue + " " + card.getSuit() + "       ");
+            System.out.print(cardValue + " " + card.getSuit() + "       ");
         }
 
         System.out.println();
