@@ -32,6 +32,8 @@ public class Player {
         }
     }
 
+    // To check whether any card from the hand has a similar rank or suit to the given card
+    // Also checks whether the matching card from hand can be an action card or not
     public Card getMatchingCardFromHand(Card card, boolean canFetchActionCard) {
         for (Card handCard: hand) {
             if (!canFetchActionCard && card.isActionCard()) {

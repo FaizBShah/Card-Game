@@ -16,14 +16,17 @@ public class CardDeck {
         this.deck = new Stack<>();
         List<Card> cards = new ArrayList<>(52);
 
+        // Create a list of all the 52 cards
         for (int value = 1; value <= 13; value++) {
             for (CardSuit suit: CardSuit.values()) {
                 cards.add(CardFactory.create(value, suit));
             }
         }
 
+        // Shuffle the cards
         Collections.shuffle(cards);
 
+        // Push the shuffled cards into deck
         for (Card card: cards) {
             this.deck.push(card);
         }

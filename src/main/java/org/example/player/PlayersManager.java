@@ -42,6 +42,7 @@ public class PlayersManager {
             throw new IllegalStateException("Cannot have more than 4 players in the game");
         }
 
+        // If this is the first player, set them as the current active player
         if (players.isEmpty()) {
             setCurrentActivePlayer(0);
         }

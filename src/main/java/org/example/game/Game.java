@@ -53,10 +53,12 @@ public class Game {
 
         List<Player> players = playersManager.getPlayers();
 
+        // Add 5 cards from the deck to every player
         for (Player player: players) {
             player.addCardsToHand(cardDeck.drawNCards(5));
         }
 
+        // Start the game
         setIsGameActive(true);
     }
 
@@ -65,14 +67,20 @@ public class Game {
     }
 
     public void playTurn() {
+        // Print the current status of the game before each turn
         PrintService.getCurrentGameStatus(this);
 
+        // Get the current player as well as the card they want to put on the deck
         Player currPlayer = playersManager.getCurrentActivePlayer();
+        // If isActionCardPlayedLastTurn is true, then they cannot draw an action card this turn
         Card card = currPlayer.getMatchingCardFromHand(cardDeck.getTopCard(), !isActionCardPlayedLastTurn());
 
+        // If card is null, it means they have no valid card they can play, and hence need to draw a card
+        // and add it to their hand
         if (card == null) {
             currPlayer.addCardsToHand(cardDeck.drawNCards(1));
 
+            // If after drawing the card, deck becomes empty, then end the game
             if (cardDeck.isDeckEmpty()) {
                 setIsGameActive(false);
             }
@@ -80,9 +88,12 @@ public class Game {
             return;
         }
 
+        // If card is not null, then remove the card from hand and add it to deck
         currPlayer.removeCardFromHand(card);
         cardDeck.addCard(card);
 
+        // If card is an action card, then do the corresponding action
+        // and also set isActionCardPlayedLastTurn to true, else false
         if (card.isActionCard()) {
             ActionCard actionCard = (ActionCard) card;
             actionCard.doAction(this);
@@ -91,11 +102,13 @@ public class Game {
             setActionCardPlayedLastTurn(false);
         }
 
+        // If the player's hand or the deck has become empty, stop the game
         if (currPlayer.getHand().isEmpty() || cardDeck.isDeckEmpty()) {
             setIsGameActive(false);
             return;
         }
 
+        // Change the turn to next player
         playersManager.next();
     }
 
@@ -104,6 +117,8 @@ public class Game {
             throw new IllegalStateException("Game is not over yet");
         }
 
+        // If the current player's hand is empty, then they have won the game, else if deck
+        // is empty, then it's a draw
         if (playersManager.getCurrentActivePlayer().getHand().isEmpty()) {
             return playersManager.getCurrentActivePlayer().getName() + " is the winner of the game";
         } else {

@@ -13,6 +13,7 @@ public class JackActionCard extends ActionCard {
 
     @Override
     public void doAction(Game game) {
+        // If card is Jack, make the next player draw 4 cards in their hand
         Player nextPlayer = game.getPlayersManager().getNextPlayer();
         nextPlayer.addCardsToHand(game.getCardDeck().drawNCards(4));
     }
