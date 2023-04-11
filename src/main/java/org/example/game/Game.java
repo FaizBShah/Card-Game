@@ -61,7 +61,6 @@ public class Game {
 
     public void playTurn() {
         Player currPlayer = playersManager.getCurrentActivePlayer();
-
         Card card = currPlayer.getMatchingCardFromHand(cardDeck.getTopCard(), !isActionCardPlayedLastTurn());
 
         if (card == null) {
@@ -88,5 +87,17 @@ public class Game {
         }
 
         playersManager.next();
+    }
+
+    public String getGameResult() {
+        if (!playersManager.getCurrentActivePlayer().getHand().isEmpty() && !cardDeck.isDeckEmpty()) {
+            throw new IllegalStateException("Game is not over yet");
+        }
+
+        if (playersManager.getCurrentActivePlayer().getHand().isEmpty()) {
+            return playersManager.getCurrentActivePlayer().getName() + " is the winner of the game";
+        } else {
+            return "The game is a draw as the deck has become empty";
+        }
     }
 }
