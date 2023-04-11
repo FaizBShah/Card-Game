@@ -35,4 +35,14 @@ public class Player {
             throw new IllegalStateException("The card does not belong to " + name + "'s hand");
         }
     }
+
+    public Card getMatchingCardFromHand(Card card) {
+        for (Card handCard: hand) {
+            if (handCard.getValue().intValue() == card.getValue().intValue() || handCard.getSuit() == card.getSuit()) {
+                return handCard;
+            }
+        }
+
+        return null;
+    }
 }
