@@ -4,7 +4,7 @@ import org.example.card.ActionCard.ActionCard;
 
 public class Card {
     private final Integer value;
-    private CardSuit suit;
+    private final CardSuit suit;
 
     public Card(Integer value, CardSuit suit) {
         this.value = value;
@@ -17,10 +17,6 @@ public class Card {
 
     public CardSuit getSuit() {
         return suit;
-    }
-
-    public void setSuit(CardSuit suit) {
-        this.suit = suit;
     }
 
     public boolean isActionCard() {
