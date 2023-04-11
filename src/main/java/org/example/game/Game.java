@@ -66,6 +66,11 @@ public class Game {
 
         if (card == null) {
             currPlayer.addCardsToHand(cardDeck.drawNCards(1));
+
+            if (cardDeck.isDeckEmpty()) {
+                isGameActive = false;
+            }
+
             return;
         }
 
