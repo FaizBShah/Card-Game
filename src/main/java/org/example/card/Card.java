@@ -3,7 +3,7 @@ package org.example.card;
 import org.example.card.ActionCard.ActionCard;
 
 public class Card {
-    private Integer value;
+    private final Integer value;
     private CardSuit suit;
 
     public Card(Integer value, CardSuit suit) {
