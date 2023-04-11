@@ -65,6 +65,7 @@ public class Game {
 
     public void playTurn() {
         Player currPlayer = playersManager.getCurrentActivePlayer();
+        currPlayer.displayHand();
         Card card = currPlayer.getMatchingCardFromHand(cardDeck.getTopCard(), !isActionCardPlayedLastTurn());
 
         if (card == null) {
