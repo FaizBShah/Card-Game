@@ -33,7 +33,7 @@ public class Game {
         return isGameActive;
     }
 
-    public boolean setIsGameActive(boolean isGameActive) {
+    public void setIsGameActive(boolean isGameActive) {
         this.isGameActive = isGameActive;
     }
 
