@@ -15,10 +15,6 @@ public class Card {
         return value;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
     public CardSuit getSuit() {
         return suit;
     }

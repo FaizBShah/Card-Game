@@ -33,6 +33,10 @@ public class Game {
         return isGameActive;
     }
 
+    public boolean setIsGameActive(boolean isGameActive) {
+        this.isGameActive = isGameActive;
+    }
+
     public boolean isActionCardPlayedLastTurn() {
         return isActionCardPlayedLastTurn;
     }
@@ -52,7 +56,7 @@ public class Game {
             player.addCardsToHand(cardDeck.drawNCards(5));
         }
 
-        isGameActive = true;
+        setIsGameActive(true);
     }
 
     public void addPlayer(Player player) {
@@ -67,11 +71,13 @@ public class Game {
             currPlayer.addCardsToHand(cardDeck.drawNCards(1));
 
             if (cardDeck.isDeckEmpty()) {
-                isGameActive = false;
+                setIsGameActive(false);
             }
 
             return;
         }
+
+        currPlayer.removeCardFromHand(card);
 
         if (card.isActionCard()) {
             ActionCard actionCard = (ActionCard) card;
@@ -82,7 +88,7 @@ public class Game {
         }
 
         if (currPlayer.getHand().isEmpty() || cardDeck.isDeckEmpty()) {
-            isGameActive = false;
+            setIsGameActive(false);
             return;
         }
 
