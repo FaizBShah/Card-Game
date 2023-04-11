@@ -8,13 +8,17 @@ public class PlayersManager {
     private Integer currentActivePlayer;
     private Integer playDirection;
 
-    PlayersManager() {
+    public PlayersManager() {
         players = new ArrayList<>();
         playDirection = 1;
     }
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public Integer getNumberOfPlayers() {
+        return players.size();
     }
 
     public Player getCurrentActivePlayer() {
@@ -29,7 +33,7 @@ public class PlayersManager {
         return playDirection;
     }
 
-    private void changePlayDirection() {
+    public void changePlayDirection() {
         playDirection *= -1;
     }
 
@@ -45,7 +49,12 @@ public class PlayersManager {
         players.add(player);
     }
 
-    public void next() {
+    public PlayersManager next() {
         setCurrentActivePlayer((players.size() + currentActivePlayer + playDirection) % players.size());
+        return this;
+    }
+
+    public Player getNextPlayer() {
+        return players.get((players.size() + currentActivePlayer + playDirection) % players.size());
     }
 }

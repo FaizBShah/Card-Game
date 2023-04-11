@@ -1,6 +1,7 @@
 package org.example.card.ActionCard;
 
 import org.example.card.CardSuit;
+import org.example.game.Game;
 
 public class AceActionCard extends ActionCard {
     private final static ActionCardType actionCardType = ActionCardType.ACE;
@@ -10,7 +11,7 @@ public class AceActionCard extends ActionCard {
     }
 
     @Override
-    public void doAction() {
-        // Do action for Ace Card
+    public void doAction(Game game) {
+        game.getPlayersManager().next().next();
     }
 }

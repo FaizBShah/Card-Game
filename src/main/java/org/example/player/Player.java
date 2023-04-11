@@ -36,8 +36,12 @@ public class Player {
         }
     }
 
-    public Card getMatchingCardFromHand(Card card) {
+    public Card getMatchingCardFromHand(Card card, boolean canFetchActionCard) {
         for (Card handCard: hand) {
+            if (!canFetchActionCard && card.isActionCard()) {
+                continue;
+            }
+
             if (handCard.getValue().intValue() == card.getValue().intValue() || handCard.getSuit() == card.getSuit()) {
                 return handCard;
             }
