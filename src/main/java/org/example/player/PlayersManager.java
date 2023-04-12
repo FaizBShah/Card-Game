@@ -25,11 +25,11 @@ public class PlayersManager {
         return players.get(currentActivePlayer);
     }
 
-    private void setCurrentActivePlayer(Integer currentActivePlayer) {
+    public void setCurrentActivePlayer(Integer currentActivePlayer) {
         this.currentActivePlayer = currentActivePlayer;
     }
 
-    private Integer getPlayDirection() {
+    public Integer getPlayDirection() {
         return playDirection;
     }
 
