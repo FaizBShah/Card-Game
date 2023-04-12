@@ -50,9 +50,8 @@ public class PlayersManager {
         players.add(player);
     }
 
-    public PlayersManager next() {
+    public void next() {
         setCurrentActivePlayer((players.size() + currentActivePlayer + getPlayDirection()) % players.size());
-        return this;
     }
 
     public Player getNextPlayer() {
