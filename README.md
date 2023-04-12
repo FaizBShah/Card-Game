@@ -7,3 +7,9 @@ Then go to project root and run the following commands to run all the unit tests
 mvn package
 java -jar target/card-game-1.0-SNAPSHOT.jar
 ```
+
+Here is the test coverage report:
+
+![Test Coverage](./coverage.jpg)
+
+To run the coverage yourself, open the project in IntelliJ IDEA, select "Projects" view, right click on `src -> test -> jave` and select "Run with coverage"
