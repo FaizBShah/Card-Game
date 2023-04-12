@@ -45,6 +45,10 @@ public class CardDeck {
     }
 
     public List<Card> drawNCards(int n) {
+        if (n < 1) {
+            throw new IllegalStateException("You cannot draw less than 1 card");
+        }
+
         if (n > deck.size()) {
             throw new IllegalStateException("Trying to draw more cards than is present in the deck");
         }
