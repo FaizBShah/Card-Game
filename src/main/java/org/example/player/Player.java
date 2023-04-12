@@ -36,7 +36,7 @@ public class Player {
     // Also checks whether the matching card from hand can be an action card or not
     public Card getMatchingCardFromHand(Card card, boolean canFetchActionCard) {
         for (Card handCard: hand) {
-            if (!canFetchActionCard && card.isActionCard()) {
+            if (!canFetchActionCard && handCard.isActionCard()) {
                 continue;
             }
 

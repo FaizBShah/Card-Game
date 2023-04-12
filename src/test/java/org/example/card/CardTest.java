@@ -1,6 +1,5 @@
 package org.example.card;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,19 +17,19 @@ class CardTest {
     }
 
     @Test
-    void getValue() {
+    void shouldGetValueWorkFine() {
         assertEquals(2, normalCard.getValue());
         assertEquals(1, actionCard.getValue());
     }
 
     @Test
-    void getSuit() {
+    void shouldGetSuitWorkFine() {
         assertEquals(CardSuit.SPADE, normalCard.getSuit());
         assertEquals(CardSuit.HEART, actionCard.getSuit());
     }
 
     @Test
-    void isActionCard() {
+    void shouldIsActionCardWorkFine() {
         assertFalse(normalCard.isActionCard());
         assertTrue(actionCard.isActionCard());
     }
