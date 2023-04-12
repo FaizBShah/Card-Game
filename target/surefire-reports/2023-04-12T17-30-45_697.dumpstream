@@ -1,0 +1,5 @@
+# Created at 2023-04-12T17:30:45.920
+Boot Manifest-JAR contains absolute paths in classpath 'F:\Java Projects\Swiggy Project 2\Card-Game\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

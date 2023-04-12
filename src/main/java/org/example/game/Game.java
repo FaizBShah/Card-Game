@@ -42,7 +42,7 @@ public class Game {
         return isActionCardPlayedLastTurn;
     }
 
-    private void setActionCardPlayedLastTurn(boolean actionCardPlayedLastTurn) {
+    public void setActionCardPlayedLastTurn(boolean actionCardPlayedLastTurn) {
         this.isActionCardPlayedLastTurn = actionCardPlayedLastTurn;
     }
 
@@ -63,6 +63,10 @@ public class Game {
     }
 
     public void addPlayer(Player player) {
+        if (isGameActive()) {
+            throw new IllegalStateException("Cannot add players once the game has started");
+        }
+
         playersManager.addPlayer(player);
     }
 
@@ -119,7 +123,7 @@ public class Game {
     }
 
     public String getGameResult() {
-        if (!playersManager.getCurrentActivePlayer().getHand().isEmpty() && !cardDeck.isDeckEmpty()) {
+        if (isGameActive() || (!playersManager.getCurrentActivePlayer().getHand().isEmpty() && !cardDeck.isDeckEmpty())) {
             throw new IllegalStateException("Game is not over yet");
         }
 

@@ -35,6 +35,6 @@ public class PrintService {
             default -> card.getValue().toString();
         };
 
-        System.out.println("The current top card in the deck is: " + cardValue + " " + card.getSuit());
+        System.out.println("The current top card in the deck is: " + cardValue + " " + card.getSuit() + "\n\n\n");
     }
 }

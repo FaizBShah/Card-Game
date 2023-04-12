@@ -14,6 +14,5 @@ public class KingActionCard extends ActionCard {
     public void doAction(Game game) {
         // If card is King, change the direction of the turns
         game.getPlayersManager().changePlayDirection();
-        game.getPlayersManager().next();
     }
 }
