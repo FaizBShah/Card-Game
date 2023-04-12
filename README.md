@@ -12,4 +12,4 @@ Here is the test coverage report:
 
 ![Test Coverage](./coverage.jpg)
 
-To run the coverage yourself, open the project in IntelliJ IDEA, select "Projects" view, right click on `src -> test -> jave` and select "Run with coverage"
+To run the coverage yourself, open the project in IntelliJ IDEA, select "Projects" view, right click on `src -> test -> java` and select "Run with coverage"
