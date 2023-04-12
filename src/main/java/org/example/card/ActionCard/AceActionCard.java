@@ -13,6 +13,6 @@ public class AceActionCard extends ActionCard {
     @Override
     public void doAction(Game game) {
         // If card is Ace, skip the next player's turn
-        game.getPlayersManager().next().next();
+        game.getPlayersManager().next();
     }
 }

@@ -80,11 +80,17 @@ public class Game {
         if (card == null) {
             currPlayer.addCardsToHand(cardDeck.drawNCards(1));
 
+            // If Action card was played last turn, set it to false
+            if (isActionCardPlayedLastTurn()) {
+                setActionCardPlayedLastTurn(false);
+            }
+
             // If after drawing the card, deck becomes empty, then end the game
             if (cardDeck.isDeckEmpty()) {
                 setIsGameActive(false);
+            } else {
+                playersManager.next();
             }
-
             return;
         }
 
